@@ -1,0 +1,16 @@
+.container{
+			background-color : rgba(255, 99, 71, 0.5);
+			color : black;
+			margin : auto;
+			padding : 5px;
+		}
+.tengah {
+	margin:auto;
+}
+}
+.jarak{
+	padding: 100px;
+}
+.jaraktepi {
+	border: 1px solid grey;
+}
