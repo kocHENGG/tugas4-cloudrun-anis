@@ -1,9 +1,11 @@
-# Always good to specific so that it doesn't later break
-FROM node:12.4
-# This folder will all commands be run in, like the HOME folder
-WORKDIR /app
-# Add our sourcecode
-ADD . /app
-# The command to start our container
-EXPOSE 8080
-CMD node server.js
+FROM php:7.4-apache
+
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY start-apache /usr/local/bin
+RUN a2enmod rewrite
+
+# Copy application source
+COPY src /var/www/
+RUN chown -R www-data:www-data /var/www
+
+CMD ["start-apache"]
